@@ -46,5 +46,34 @@ return require('packer').startup(function(use)
 
 	-- fugitive (git)
 	use('tpope/vim-fugitive')
+
+    -- close parens
+    use('m4xshen/autoclose.nvim')
+
+    -- dashboard
+    use {
+        'glepnir/dashboard-nvim',
+        event = 'VimEnter',
+        config = function()
+            require('dashboard').setup {
+                -- config here
+            --    theme = 'doom'
+            }
+        end,
+        requires = {'nvim-tree/nvim-web-devicons'}
+    }
+
+    -- tabs
+    use('nvim-tree/nvim-web-devicons')
+    use {
+        'romgrk/barbar.nvim',
+        requires = 'nvim-web-devicons'
+    }
+
+    -- status page
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
 end)
 
